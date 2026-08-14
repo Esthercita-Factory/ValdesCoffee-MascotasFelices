@@ -1,25 +1,12 @@
-namespace ClinicaPatitasFelices.Console;
-
-public class Mascota
-{ 
-    public int id  ; 
-    public string name{ get; set; };
-    public byte edad { get; set; };
-    public int peso { get; set; };
-    public string? sintomas { get; set; };
-    public string especie { get; set; };
-    public Mascota(int id, string name, byte edad, int peso, string especie);
+namespace ClinicaVeterinariaLINQ.Models
+{
+    // Representa la mascota asociada a un paciente (dueño)
+    public class Mascota
     {
-        Id = id;
-        Name = name;
-        Edad = edad;
-        Peso = peso;
-        Sintomas = sintomas;
-        Especie = especie;
-
+        // Propiedades automáticas
+        public string Nombre { get; set; }
+        public string Especie { get; set; }   // Ej: "Perro", "Gato", "Ave"
+        public string Raza { get; set; }       // Puede quedar vacía o null si no está definida
+        public int Edad { get; set; }
     }
-
-    public void AgregarMascota()
-    {
-        Console.WriteLine($"");
-    }
+}
