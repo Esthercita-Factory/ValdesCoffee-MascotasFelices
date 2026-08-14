@@ -1,6 +1,6 @@
 namespace ClinicaVeterinariaLINQ.Models
 {
-    // TASK 3: Clase Paciente con propiedades básicas usando propiedades automáticas
+     // Clase Paciente con propiedades básicas usando propiedades automáticas
     public class Paciente
     {
         public int Id { get; set; }
