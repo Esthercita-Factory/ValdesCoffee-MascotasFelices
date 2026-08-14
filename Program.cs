@@ -10,7 +10,7 @@ namespace ClinicaVeterinariaLINQ
         static void Main(string[] args)
         {
           
-            // Lista que almacena los pacientes (y su mascota embebida)
+            // Lista que almacena los pacientes 
             List<Paciente> pacientes = new List<Paciente>
             {
                 new Paciente { Id = 1, Nombre = "Laura Pérez",   Edad = 28, Sintoma = "Chequeo general", Telefono = "3001112233",
