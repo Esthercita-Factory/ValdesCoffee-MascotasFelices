@@ -1,0 +1,2 @@
+namespace ClinicaPatitasFelices.Console.Models;
+namespace ClinicaPatitasFelices.Console.Interfaces;

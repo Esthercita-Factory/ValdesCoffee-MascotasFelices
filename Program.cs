@@ -1,9 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ClinicaPatitasFelices.Services;
+using ClinicaPatitasFelices.ConsoleApp.UI;
+using ClinicaPatitasFelices.Services;
 
-Console.ForegroundColor = ConsoleColor.DarkMagenta;
-Console.WriteLine("Hola Clínica Salud+");
-// Metodo constructor
+// 1. Configuración de Servicios (Dependency Injection manual)
+var pacienteService = new PacienteService();
+var mascotaService = new MascotaService();
 
-var miPrimerMascota = new Mascota(id:1, nombre:"Reigar", edad:1, peso:1, especie:"Mascota");
+// 2. Instanciación de la Interfaz de Usuario
+var menu = new MenuPrincipal(pacienteService, mascotaService);
 
-miPrimerMascota.nombre = "reigar";
+// 3. Ejecución de la aplicación
+menu.Mostrar();
