@@ -1,13 +1,9 @@
-﻿using ClinicaPatitasFelices.Services;
-using ClinicaPatitasFelices.ConsoleApp.UI;
-using ClinicaPatitasFelices.Services;
+using ClinicaPatitasFelices.Console.Services;
+using ClinicaPatitasFelices.Console.UI;
 
-// 1. Configuración de Servicios (Dependency Injection manual)
+// Composition root: aquí y solo aquí se arma el grafo de dependencias.
 var pacienteService = new PacienteService();
 var mascotaService = new MascotaService();
 
-// 2. Instanciación de la Interfaz de Usuario
 var menu = new MenuPrincipal(pacienteService, mascotaService);
-
-// 3. Ejecución de la aplicación
 menu.Mostrar();

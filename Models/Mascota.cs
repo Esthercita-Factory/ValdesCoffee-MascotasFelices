@@ -1,6 +1,7 @@
-namespace ClinicaPatitasFelices.Models
+using ClinicaPatitasFelices.Console.Interfaces;
+
+namespace ClinicaPatitasFelices.Console.Models
 {
-    // Mantenemos un único namespace coherente y evitamos colisiones.
     public class Mascota : IRegistrable
     {
         public Guid Id { get; private set; }
@@ -11,7 +12,7 @@ namespace ClinicaPatitasFelices.Models
 
         public Mascota(string nombre, string especie, string raza)
         {
-            Id = Guid.NewGuid(); // Autogeneración del UUID al instanciar
+            Id = Guid.NewGuid();
             Nombre = nombre;
             Especie = especie;
             Raza = raza;
@@ -19,11 +20,10 @@ namespace ClinicaPatitasFelices.Models
 
         public void Registrar()
         {
-            // Aquí va la lógica de dominio (ej. cambiar un estado interno a "Activo"), 
-            // no la impresión en consola.
+            // Lógica de dominio (ej. marcar como "Activo" en el sistema).
         }
 
-        // En lugar de Console.WriteLine, retornamos la cadena.
+        // Retorna la cadena en vez de imprimir: quien imprime es la capa UI.
         public string ObtenerInformacion()
         {
             string infoDueno = Dueno != null ? Dueno.Nombre : "Sin dueño asignado";
