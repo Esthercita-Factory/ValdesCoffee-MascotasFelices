@@ -6,4 +6,4 @@ var pacienteService = new PacienteService();
 var mascotaService = new MascotaService();
 
 var menu = new MenuPrincipal(pacienteService, mascotaService);
-menu.Mostrar();
+await menu.MostrarAsync();

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using ClinicaPatitasFelices.Console.Models;
 using ClinicaPatitasFelices.Console.Services;
 
@@ -14,7 +15,7 @@ namespace ClinicaPatitasFelices.Console.UI
             _mascotaService = mascotaService;
         }
 
-        public void Mostrar()
+        public async Task MostrarAsync()
         {
             bool continuar = true;
             while (continuar)
@@ -25,7 +26,8 @@ namespace ClinicaPatitasFelices.Console.UI
                 System.Console.WriteLine("2. Registrar mascota");
                 System.Console.WriteLine("3. Enviar recordatorio de cita");
                 System.Console.WriteLine("4. Listar pacientes y sus mascotas");
-                System.Console.WriteLine("5. Salir");
+                System.Console.WriteLine("5. Demo: registrar varios pacientes en paralelo ");
+                System.Console.WriteLine("6. Salir");
                 System.Console.Write("Elige una opción: ");
 
                 string opcion = System.Console.ReadLine() ?? "";
@@ -33,18 +35,21 @@ namespace ClinicaPatitasFelices.Console.UI
                 switch (opcion)
                 {
                     case "1":
-                        RegistrarPacienteUI();
+                        await RegistrarPacienteUIAsync();
                         break;
                     case "2":
-                        RegistrarMascotaUI();
+                        await RegistrarMascotaUIAsync();
                         break;
                     case "3":
-                        EnviarRecordatorioUI();
+                        await EnviarRecordatorioUIAsync();
                         break;
                     case "4":
                         ListarPacientesUI();
                         break;
                     case "5":
+                        await RegistrarPacientesEnParaleloDemoUIAsync();
+                        break;
+                    case "6":
                         continuar = false;
                         break;
                     default:
@@ -54,7 +59,7 @@ namespace ClinicaPatitasFelices.Console.UI
             }
         }
 
-        private void RegistrarPacienteUI()
+        private async Task RegistrarPacienteUIAsync()
         {
             System.Console.ForegroundColor = System.ConsoleColor.DarkRed;
             System.Console.Write("Nombre del dueño: ");
@@ -64,13 +69,17 @@ namespace ClinicaPatitasFelices.Console.UI
             System.Console.Write("Email: ");
             string email = System.Console.ReadLine() ?? "";
 
-            var paciente = _pacienteService.Registrar(nombre, telefono, email);
-            System.Console.WriteLine($"Paciente registrado exitosamente. ID: {paciente.Id}");
+            System.Console.WriteLine("[Antes] Enviando datos para registrar al paciente...");
+            Task<Paciente> tareaRegistro = _pacienteService.RegistrarPacienteAsync(nombre, telefono, email);
+            System.Console.WriteLine("[Durante] El registro se procesa en segundo plano; la aplicación no se bloquea...");
+
+            Paciente paciente = await tareaRegistro;
+            System.Console.WriteLine($"[Después] Paciente registrado exitosamente. ID: {paciente.Id}");
         }
 
-        private void RegistrarMascotaUI()
+        private async Task RegistrarMascotaUIAsync()
         {
-           System.Console.ForegroundColor = System.ConsoleColor.DarkRed;
+            System.Console.ForegroundColor = System.ConsoleColor.DarkRed;
             System.Console.Write("Nombre de la mascota: ");
             string nombre = System.Console.ReadLine() ?? "";
             System.Console.Write("Especie: ");
@@ -90,19 +99,38 @@ namespace ClinicaPatitasFelices.Console.UI
                 }
             }
 
-            var mascota = _mascotaService.Registrar(nombre, especie, raza, dueno);
-            System.Console.WriteLine($"Mascota registrada exitosamente. ID: {mascota.Id}");
+            System.Console.WriteLine("[Antes] Enviando datos para registrar la mascota...");
+            Task<Mascota> tareaRegistro = _mascotaService.RegistrarMascotaAsync(nombre, especie, raza, dueno);
+            System.Console.WriteLine("[Durante] El registro se procesa en segundo plano; la aplicación no se bloquea...");
+
+            Mascota mascota = await tareaRegistro;
+            System.Console.WriteLine($"[Después] Mascota registrada exitosamente. ID: {mascota.Id}");
         }
 
-        private void EnviarRecordatorioUI()
+        private async Task EnviarRecordatorioUIAsync()
         {
             System.Console.Write("ID del paciente a notificar: ");
             string idPaciente = System.Console.ReadLine() ?? "";
 
-            if (!Guid.TryParse(idPaciente, out var id) || !_pacienteService.EnviarRecordatorioCita(id))
+            if (!Guid.TryParse(idPaciente, out var id))
+            {
+                System.Console.WriteLine("ID inválido.");
+                return;
+            }
+
+            System.Console.WriteLine("[Antes] Enviando recordatorio de cita por los canales disponibles...");
+            Task<string> tareaRecordatorio = _pacienteService.EnviarRecordatorioCitaAsync(id);
+            System.Console.WriteLine("[Durante] Compitiendo SMS vs Email (Task.WhenAny), sin bloquear la aplicación...");
+
+            string canalGanador = await tareaRecordatorio;
+
+            if (string.IsNullOrEmpty(canalGanador))
             {
                 System.Console.WriteLine("No se encontró un paciente con ese ID.");
+                return;
             }
+
+            System.Console.WriteLine($"[Después] Recordatorio entregado por el canal más rápido: {canalGanador}.");
         }
 
         private void ListarPacientesUI()
@@ -121,6 +149,29 @@ namespace ClinicaPatitasFelices.Console.UI
                 {
                     System.Console.WriteLine($"  - {mascota.Nombre} ({mascota.Especie}, {mascota.Raza})");
                 }
+            }
+        }
+
+        // Registra 3 pacientes de ejemplo al mismo tiempo para demostrar Task.WhenAll:
+        // el tiempo total es el de la tarea más lenta, no la suma de las tres.
+        private async Task RegistrarPacientesEnParaleloDemoUIAsync()
+        {
+            System.Console.WriteLine("[Antes] Registrando 3 pacientes de ejemplo en paralelo...");
+            var cronometro = Stopwatch.StartNew();
+
+            Task<Paciente> tareaUno = _pacienteService.RegistrarPacienteAsync("Ana Torres", "3001111111", "ana@example.com");
+            Task<Paciente> tareaDos = _pacienteService.RegistrarPacienteAsync("Luis Gómez", "3002222222", "luis@example.com");
+            Task<Paciente> tareaTres = _pacienteService.RegistrarPacienteAsync("Marta Ruiz", "3003333333", "marta@example.com");
+
+            System.Console.WriteLine("[Durante] Las 3 tareas corren al mismo tiempo, sin bloquear el hilo principal...");
+
+            Paciente[] pacientesRegistrados = await Task.WhenAll(tareaUno, tareaDos, tareaTres);
+
+            cronometro.Stop();
+            System.Console.WriteLine($"[Después] Registro paralelo finalizado en {cronometro.ElapsedMilliseconds} ms:");
+            foreach (var paciente in pacientesRegistrados)
+            {
+                System.Console.WriteLine($"  - {paciente.Nombre} (ID: {paciente.Id})");
             }
         }
     }
