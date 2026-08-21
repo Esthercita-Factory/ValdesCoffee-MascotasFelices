@@ -19,6 +19,7 @@ namespace ClinicaPatitasFelices.Console.UI
             bool continuar = true;
             while (continuar)
             {
+                System.Console.ForegroundColor = System.ConsoleColor.Magenta;
                 System.Console.WriteLine("\n===== CLÍNICA PATITAS FELICES =====");
                 System.Console.WriteLine("1. Registrar paciente (dueño)");
                 System.Console.WriteLine("2. Registrar mascota");
@@ -55,6 +56,7 @@ namespace ClinicaPatitasFelices.Console.UI
 
         private void RegistrarPacienteUI()
         {
+            System.Console.ForegroundColor = System.ConsoleColor.DarkRed;
             System.Console.Write("Nombre del dueño: ");
             string nombre = System.Console.ReadLine() ?? "";
             System.Console.Write("Teléfono: ");
@@ -68,6 +70,7 @@ namespace ClinicaPatitasFelices.Console.UI
 
         private void RegistrarMascotaUI()
         {
+           System.Console.ForegroundColor = System.ConsoleColor.DarkRed;
             System.Console.Write("Nombre de la mascota: ");
             string nombre = System.Console.ReadLine() ?? "";
             System.Console.Write("Especie: ");
