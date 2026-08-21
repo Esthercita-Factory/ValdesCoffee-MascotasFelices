@@ -12,3 +12,26 @@
 /home/cohorte5/Documentos/c# STUFF/SOLUCION clinica paptitas flecis/ClinicaPatitasFelices/ClinicaPatitasFelices.Console/obj/Debug/net10.0/ClinicaPatitasFelices.Console.pdb
 /home/cohorte5/Documentos/c# STUFF/SOLUCION clinica paptitas flecis/ClinicaPatitasFelices/ClinicaPatitasFelices.Console/obj/Debug/net10.0/ClinicaPatitasFelices.Console.genruntimeconfig.cache
 /home/cohorte5/Documentos/c# STUFF/SOLUCION clinica paptitas flecis/ClinicaPatitasFelices/ClinicaPatitasFelices.Console/obj/Debug/net10.0/ref/ClinicaPatitasFelices.Console.dll
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.GeneratedMSBuildEditorConfig.editorconfig
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.AssemblyInfoInputs.cache
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.AssemblyInfo.cs
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.csproj.CoreCompileInputs.cache
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.sourcelink.json
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.dll
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/refint/ClinicaPatitasFelices.Console.dll
+/home/cohorte5/Documentos/c# STUFF/ValdesCoffee-MascotasFelices/obj/Debug/net10.0/ClinicaPatitasFelices.Console.pdb
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\bin\Debug\net10.0\ClinicaPatitasFelices.Console.exe
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\bin\Debug\net10.0\ClinicaPatitasFelices.Console.deps.json
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\bin\Debug\net10.0\ClinicaPatitasFelices.Console.runtimeconfig.json
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\bin\Debug\net10.0\ClinicaPatitasFelices.Console.dll
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\bin\Debug\net10.0\ClinicaPatitasFelices.Console.pdb
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.AssemblyInfoInputs.cache
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.AssemblyInfo.cs
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.csproj.CoreCompileInputs.cache
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.sourcelink.json
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.dll
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\refint\ClinicaPatitasFelices.Console.dll
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.pdb
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ClinicaPatitasFelices.Console.genruntimeconfig.cache
+C:\Users\Usuary\Documents\PROGRAMACION Y MUNDO TECH\Riwi\Ruta avanzada\ValdesCoffee-MascotasFelices\obj\Debug\net10.0\ref\ClinicaPatitasFelices.Console.dll

@@ -1,9 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+using ClinicaPatitasFelices.Console.Services;
+using ClinicaPatitasFelices.Console.UI;
 
-Console.ForegroundColor = ConsoleColor.DarkMagenta;
-Console.WriteLine("Hola Clínica Salud+");
-// Metodo constructor
+// Composition root: aquí y solo aquí se arma el grafo de dependencias.
+var pacienteService = new PacienteService();
+var mascotaService = new MascotaService();
 
-var miPrimerMascota = new Mascota(id:1, nombre:"Reigar", edad:1, peso:1, especie:"Mascota");
-
-miPrimerMascota.nombre = "reigar";
+var menu = new MenuPrincipal(pacienteService, mascotaService);
+menu.Mostrar();
